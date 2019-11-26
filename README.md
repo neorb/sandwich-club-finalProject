@@ -1,32 +1,27 @@
-Movie search using a unidirectional state flow pattern
-This is an attempt at coming up with a unidirectional state flow pattern that uses the concepts of patterns like Redux, Cycle.js, MVI etc.
+# PopularMovies (Project 1 & 2)
+An Android app which shows the list of Most Popular and Top Rated movies. This project is under Udacity Android Nanodegree Program.
 
-Many of my contemporaries have already done amazing work in this area and I've drawn a lot of lessons and learnings from their work already:
+## Rubric
 
-The state of managing state with RxJava - JakeWharton
-MVI patterns with Hannes Dorfmann - Hannes Dorfmann
-LCE: Modeling Data Loading in RxJava - Laimonas
-I wanted to achieve the benefits of this pattern without necessarily introducing any new libraries (aside from Rx). How would one familiar with an MVVM model today step to a world where all data flows in a single direction? I hope to demo those concepts with this app.
+### Stage 1 : Main Discovery Screen, A Details View, and Settings
+* Upon launch, present the user with an grid arrangement of movie posters.
+* Allow your user to change sort order via a setting:
+* The sort order can be by most popular, or by top rated
+* Allow the user to tap on a movie poster and transition to a details screen with additional information such as:
+  * original title
+  * movie poster image thumbnail
+  * A plot synopsis (called overview in the api)
+  * user rating (called vote_average in the api)
+  * release date
 
-The app in itself is a simple movie searching app. Clicking the movie result populates a history list. While this is not an extremely complex app, it isn't a silly Hello World one either, so the hope is that it'll cover regular use cases for a basic application.
+### Stage 2 : Trailers, Reviews, and Favorites
+* Allow users to view and play trailers ( either in the youtube app or a web browser).
+* Allow users to read reviews of a selected movie.
+* Allow users to mark a movie as a favorite in the details view by tapping a button(star). This is for a local movies collection that you will maintain and does not require an API request*.
+* Modify the existing sorting criteria for the main view to include an additional pivot to show their favorites collection.
+* Optimize your app experience for tablet.
 
-I've also started meaninful test cases in the repo.
+## Getting Started
+This sample uses the Gradle build system. To build this project, use the "gradlew build" command or use "Import Project" in Android Studio.
 
-Setting up your OMDB API KEY
-We use the wonderful OMDB api to fetch movie information.
-
-There are quotas on this api, so please don't use mine :)
-
-Get an api key for OMDB here
-Run this in a terminal like application
-touch $HOME/.gradle/gradle.properties
-echo "omdb_apikey=\"<API_KEY_GOES_HERE>\"" >> $HOME/.gradle/gradle.properties
-You can read this post for instructions on this private api setting up process.
-
-For great movie recommendations, ping me @kaushikgopal (seriously, I watch a lot of movies).
-
-I gave a talk at MBLT}Dev 2018 on how I went about building this app. Slides can be found here.
-
-iOS app
-I gave another talk at Mobilization IX showing how we can use the same concepts on iOS too and wrote my first iOS app to demonstrate these concepts - You can check that out here.
-
+This app uses [The Movie Database API](https://www.themoviedb.org/documentation/api) to retrieve movies. You must provide your own API key in order to build the app. When you get it, just paste it to `API_KEY` **variable** in [this](PopularMovies/app/src/main/java/com/example/deepakgarg/popularmovies/MainActivityFragment.java) file.
