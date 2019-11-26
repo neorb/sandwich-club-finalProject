@@ -1,4 +1,4 @@
-# PopularMovies (Project 1 & 2)
+# PopularMovies (Project 1)
 An Android app which shows the list of Most Popular and Top Rated movies. This project is under Udacity Android Nanodegree Program.
 
 ## Rubric
