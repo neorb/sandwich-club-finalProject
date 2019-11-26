@@ -1,21 +1,32 @@
-# Popular Movie Project (Stage 2)
+Movie search using a unidirectional state flow pattern
+This is an attempt at coming up with a unidirectional state flow pattern that uses the concepts of patterns like Redux, Cycle.js, MVI etc.
 
-## Overview
-This project is apart of the Udacity Android Developer Nanodegree. In this project (stage 2 of 2), we were prompted to build an app to allow users to discover the most popular movies playing. This app improves the functionality of the app built in Stage 1. 
+Many of my contemporaries have already done amazing work in this area and I've drawn a lot of lessons and learnings from their work already:
 
-In the movie details view:
-- Users are able to view and play trailers (in the youtube app or a web browser).
-- Users are able to read reviews of a selected movie.
-- Users are able to mark a movie as a favorite in the details view by tapping the "Add to Favorites" button. This is for a local movies collection stored on the phone.
-- There is an additional pivot in the right hand corner menu that allows users to see all the "Favorited" movies. 
+The state of managing state with RxJava - JakeWharton
+MVI patterns with Hannes Dorfmann - Hannes Dorfmann
+LCE: Modeling Data Loading in RxJava - Laimonas
+I wanted to achieve the benefits of this pattern without necessarily introducing any new libraries (aside from Rx). How would one familiar with an MVVM model today step to a world where all data flows in a single direction? I hope to demo those concepts with this app.
 
-This application utilizes the [Room persistence library](https://developer.android.com/topic/libraries/architecture/room) with LiveData for the "Favorited" movies.
+The app in itself is a simple movie searching app. Clicking the movie result populates a history list. While this is not an extremely complex app, it isn't a silly Hello World one either, so the hope is that it'll cover regular use cases for a basic application.
 
-## Running the app
-This app utilizes the [Movie Database API](https://developers.themoviedb.org/). To run this app, you must obtain a free API key from the MovieDB website and add this following line of code to your gradle.properties file:
+I've also started meaninful test cases in the repo.
 
-`API_KEY = "<INSERT API KEY HERE>";` 
+Setting up your OMDB API KEY
+We use the wonderful OMDB api to fetch movie information.
 
-## The Application
-![Screenshot](app.gif)
+There are quotas on this api, so please don't use mine :)
+
+Get an api key for OMDB here
+Run this in a terminal like application
+touch $HOME/.gradle/gradle.properties
+echo "omdb_apikey=\"<API_KEY_GOES_HERE>\"" >> $HOME/.gradle/gradle.properties
+You can read this post for instructions on this private api setting up process.
+
+For great movie recommendations, ping me @kaushikgopal (seriously, I watch a lot of movies).
+
+I gave a talk at MBLT}Dev 2018 on how I went about building this app. Slides can be found here.
+
+iOS app
+I gave another talk at Mobilization IX showing how we can use the same concepts on iOS too and wrote my first iOS app to demonstrate these concepts - You can check that out here.
 
